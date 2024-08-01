@@ -13,7 +13,7 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="0dp"
         android:layout_height="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:progress="12"
         android:progressTint="@color/progress_color"
         android:backgroundTint="@color/progress_background_color"
