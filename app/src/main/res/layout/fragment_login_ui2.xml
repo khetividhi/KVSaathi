@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FirstFragment"
+    android:background="@color/background_color"
+    >
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:id="@+id/PBText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#AFAFAF"
+        android:textSize="12dp"
+        android:text="Step 1 of 8"
+         />
+
+
+    <ImageView
+        android:id="@+id/illustration_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="70dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/otpimage" />
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/text_color"
+        android:textSize="25dp"
+        android:text="@string/put_num"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="240dp"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/send_otp"
+        android:textColor="@color/text_color"
+        android:textSize="14dp" />
+
+    <LinearLayout
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="300dp"
+        android:background="@drawable/box_background"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/LinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/text3"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:background="@null"
+                android:fontFamily="@font/roboto"
+                android:gravity="center"
+                android:text="@string/num_start"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:textColor="@color/text_color"/>
+
+            <EditText
+                android:id="@+id/inputMobile"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:background="@null"
+                android:fontFamily="@font/roboto"
+                android:hint="@string/num_hint"
+                android:imeOptions="actionDone"
+                android:importantForAutofill="auto"
+                android:inputType="number"
+                android:textSize="24dp"
+                android:maxLength="10"
+                android:textColor="@color/text_color"
+                 />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn1"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="400dp"
+        android:background="@drawable/button_background"
+        android:text="@string/otp_send"
+        android:textSize="20dp"
+        android:textColor="@color/text_color"
+        />
+
+
+</FrameLayout>

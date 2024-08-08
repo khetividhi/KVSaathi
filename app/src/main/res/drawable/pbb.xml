@@ -1,0 +1,18 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background shape with 0 corner radius -->
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="0dp" />
+            <solid android:color="@color/progress_background_color" />
+        </shape>
+    </item>
+    <!-- Progress shape -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape android:shape="rectangle">
+                <corners android:radius="0dp" />
+                <solid android:color="@color/progress_color" />
+            </shape>
+        </clip>
+    </item>
+</layer-list>

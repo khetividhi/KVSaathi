@@ -17,7 +17,7 @@
         android:layout_marginTop="-130dp"
         android:backgroundTint="@color/progress_background_color"
         android:progress="24"
-        android:progressTint="@color/progress_color" />
+        />
 
     <TextView
         android:id="@+id/step_indicator"
@@ -103,12 +103,12 @@
             android:maxLength="1"/>
     </LinearLayout>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_verify"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="सत्यापित करें"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/black"
         android:background="@drawable/button_background"
         android:layout_marginTop="30dp"/>
 </LinearLayout>

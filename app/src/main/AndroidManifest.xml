@@ -13,10 +13,13 @@
         android:theme="@style/Theme.KVSaathi"
         tools:targetApi="31">
         <activity
+            android:name=".DesUiActivity"
+            android:exported="false" />
+        <activity
             android:name=".OtpLoginActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginUiActivity"
+            android:name=".LoginUiFragment"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

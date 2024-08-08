@@ -11,4 +11,11 @@
     <string name="login_failed">"Login failed"</string>
     <string name="tag_line">किसानों का साथी!</string>
     <string name="enter_num">write some text</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="num_hint">123456789</string>
+    <string name="otp_send">OTP भेजें</string>
+    <string name="num_start">+91-</string>
+    <string name="put_num">अपना फोन नंबर डालें !</string>
+    <string name="send_otp">हम आपको 4 अंकों का ओटीपी भेजेंगे</string>
 </resources>

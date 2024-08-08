@@ -1,32 +1,63 @@
 package com.algoallies.kvsaathi;
 
+import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  implements LoginUiFragment.OnButtonClickListener {
+     ProgressBar progressBar;
+     TextView tv;
+    int progressStatus = 10;
 
+
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
+        Intent intent = new Intent(MainActivity.this, LoginUiFragment.class);
 
-        // Redirect to LoginActivity
-        Intent intent = new Intent(MainActivity.this, LoginUiActivity.class);
-        startActivity(intent);
-        finish();
+        progressBar = (ProgressBar)findViewById(R.id.progress_bar);
 
-        // The following lines are not needed as we are not setting any content view for this activity.
-        // setContentView(R.layout.activity_main);
-        // ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-        //     Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-        //     v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-        //     return insets;
-        // });
+
+
+
+
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.FrameLayout, new LoginUiFragment())
+                    .commit();
+        }
+
+
+
     }
+    public void navigateToOtpFragment() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.FrameLayout, new OtpUiFragment())
+                .addToBackStack(null)
+                .commit();
+    }
+
+    public void onButtonClicked() {
+        navigateToOtpFragment();
+        progressStatus += 10;
+        progressBar.setProgress(progressStatus);
+    }
+
 }

@@ -11,7 +11,7 @@
         <color name="text_color">#000000</color>
         <color name="input_text_color">#000000</color>
         <color name="button_color">#8FCB9B</color>
-        <color name="progress_color">#66BB6A</color>
-        <color name="progress_background_color">#E0E0E0</color>
+        <color name="progress_color">#9DCDA2</color>
+        <color name="progress_background_color">#AFAFAF</color>
 
 </resources>
