@@ -23,11 +23,7 @@ import android.widget.Toast;
 
 public class LoginUiFragment extends Fragment {
 
-    int progress = 0;
     private OnButtonClickListener listener;
-
-
-
 
     public interface OnButtonClickListener {
         void onButtonClicked();

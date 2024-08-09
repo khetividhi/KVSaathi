@@ -1,6 +1,7 @@
 package com.algoallies.kvsaathi;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -18,47 +19,26 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Objects;
+
 public class OtpUiFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private OtpUiFragment.OnButtonClickListener listener;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public OtpUiFragment() {
-        // Required empty public constructor
+    public interface OnButtonClickListener {
+        void navigateToCheckDetailsFragment();
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment OtpUiFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static OtpUiFragment newInstance(String param1, String param2) {
-        OtpUiFragment fragment = new OtpUiFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        if (context instanceof OtpUiFragment.OnButtonClickListener) {
+            listener = (OtpUiFragment.OnButtonClickListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnButtonClickListener");
         }
     }
+
 
     @SuppressLint("MissingInflatedId")
     @Nullable
@@ -84,11 +64,16 @@ public class OtpUiFragment extends Fragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(), "Hi", Toast.LENGTH_SHORT).show();
+                if (listener != null) {
+                    listener.navigateToCheckDetailsFragment();
+                }
+
+
             }
         });
         return view;
     }
+
 
     private void setUpOtpEditTexts(EditText... editTexts) {
         for (int i = 0; i < editTexts.length; i++) {
@@ -112,5 +97,54 @@ public class OtpUiFragment extends Fragment {
                 }
             });
         }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        listener = null;
+    }
 }
-}
+
+
+
+//// TODO: Rename parameter arguments, choose names that match
+//// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+//private static final String ARG_PARAM1 = "param1";
+//private static final String ARG_PARAM2 = "param2";
+//
+//// TODO: Rename and change types of parameters
+//private String mParam1;
+//private String mParam2;
+//
+//public OtpUiFragment() {
+//    // Required empty public constructor
+//}
+//
+///**
+// * Use this factory method to create a new instance of
+// * this fragment using the provided parameters.
+// *
+// * @param param1 Parameter 1.
+// * @param param2 Parameter 2.
+// * @return A new instance of fragment OtpUiFragment.
+// */
+//// TODO: Rename and change types and number of parameters
+//public static OtpUiFragment newInstance(String param1, String param2) {
+//    OtpUiFragment fragment = new OtpUiFragment();
+//    Bundle args = new Bundle();
+//    args.putString(ARG_PARAM1, param1);
+//    args.putString(ARG_PARAM2, param2);
+//    fragment.setArguments(args);
+//    return fragment;
+//}
+//
+//@Override
+//public void onCreate(Bundle savedInstanceState) {
+//    super.onCreate(savedInstanceState);
+//    if (getArguments() != null) {
+//        mParam1 = getArguments().getString(ARG_PARAM1);
+//        mParam2 = getArguments().getString(ARG_PARAM2);
+//    }
+//}
+//

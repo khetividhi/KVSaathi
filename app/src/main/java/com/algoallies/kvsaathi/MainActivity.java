@@ -18,7 +18,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-public class MainActivity extends AppCompatActivity  implements LoginUiFragment.OnButtonClickListener {
+public class MainActivity extends AppCompatActivity  implements LoginUiFragment.OnButtonClickListener,OtpUiFragment.OnButtonClickListener{
      ProgressBar progressBar;
      TextView tv;
     int progressStatus = 10;
@@ -33,10 +33,6 @@ public class MainActivity extends AppCompatActivity  implements LoginUiFragment.
         Intent intent = new Intent(MainActivity.this, LoginUiFragment.class);
 
         progressBar = (ProgressBar)findViewById(R.id.progress_bar);
-
-
-
-
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
@@ -54,10 +50,28 @@ public class MainActivity extends AppCompatActivity  implements LoginUiFragment.
                 .commit();
     }
 
+    public void navigateToCheckDetailsFragment() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.FrameLayout, new CheckIfDetailsUiFragment())
+                .addToBackStack(null)
+                .commit();
+    }
+
+    public void navigateToDetails2(){
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.FrameLayout, new details2())
+                .addToBackStack(null)
+                .commit();
+    }
+
+
     public void onButtonClicked() {
-        navigateToOtpFragment();
         progressStatus += 10;
         progressBar.setProgress(progressStatus);
+        navigateToOtpFragment();
     }
+
+
+
 
 }
